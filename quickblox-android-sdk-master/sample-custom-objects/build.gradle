@@ -1,0 +1,28 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+        }
+    }
+}
+
+dependencies {
+    // online dependencies, from maven repository, jar files
+    //
+    compile "com.quickblox:quickblox-android-sdk-core:$rootProject.qbSdkVersion@aar"
+    compile "com.quickblox:quickblox-android-sdk-customobjects:$rootProject.qbSdkVersion@aar"
+
+    compile "com.android.support:appcompat-v7:$rootProject.appCompatVersion"
+}
